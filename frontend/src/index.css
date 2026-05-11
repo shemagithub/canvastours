@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;700&display=swap");
+
+body {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #eeeeec;
+    color: #2c3e44;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+@layer base {
+    :root {
+        /* Brand tokens */
+        --teal: 197 18% 22%; /* #2d4045 deep teal */
+        --teal-dark: 197 22% 16%;
+        --teal-light: 197 14% 30%;
+        --coral: 0 84% 71%; /* #f17171 red+white mix */
+        --coral-dark: 0 70% 60%;
+        --coral-soft: 0 90% 88%;
+        --cream: 60 6% 93%; /* page background */
+        --ink: 197 22% 22%;
+        --ink-soft: 200 10% 45%;
+
+        /* shadcn tokens (mapped) */
+        --background: 60 6% 93%;
+        --foreground: 197 22% 18%;
+        --card: 0 0% 100%;
+        --card-foreground: 197 22% 18%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 197 22% 18%;
+        --primary: 0 84% 71%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 197 18% 22%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 60 6% 90%;
+        --muted-foreground: 200 10% 45%;
+        --accent: 0 84% 71%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 200 12% 86%;
+        --input: 200 12% 86%;
+        --ring: 0 84% 71%;
+        --radius: 0.25rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-display {
+        font-family: "Oswald", "Inter", sans-serif;
+        letter-spacing: 0.01em;
+    }
+    .font-script {
+        font-family: "Caveat", cursive;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}
+
+/* Brand utility classes */
+@layer utilities {
+    .bg-teal {
+        background-color: hsl(var(--teal));
+    }
+    .bg-teal-dark {
+        background-color: hsl(var(--teal-dark));
+    }
+    .bg-coral {
+        background-color: hsl(var(--coral));
+    }
+    .bg-coral-soft {
+        background-color: hsl(var(--coral-soft));
+    }
+    .bg-cream {
+        background-color: hsl(var(--cream));
+    }
+    .text-teal {
+        color: hsl(var(--teal));
+    }
+    .text-coral {
+        color: hsl(var(--coral));
+    }
+    .border-coral {
+        border-color: hsl(var(--coral));
+    }
+    .border-teal {
+        border-color: hsl(var(--teal));
+    }
+    .ring-coral {
+        --tw-ring-color: hsl(var(--coral));
+    }
+    .hover\:bg-coral-dark:hover {
+        background-color: hsl(var(--coral-dark));
+    }
+    .hover\:text-coral:hover {
+        color: hsl(var(--coral));
+    }
+}
+
+/* Scrollbar polish */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: hsl(var(--cream));
+}
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--teal-light));
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--teal));
+}
+
+/* Selection */
+::selection {
+    background: hsl(var(--coral));
+    color: #fff;
+}
